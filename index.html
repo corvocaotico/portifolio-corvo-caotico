@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio Corvo Caótico</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #f44336;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #f44336;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      border-bottom: 2px solid #f44336;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      display: block;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(244,67,54,0.6);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(244, 67, 54, 0.8);
+      color: white;
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+    .about p,
+    .blog-post p,
+    .downloads p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    footer {
+      background: #1f1f1f;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+    }
+    .contact-links a {
+      color: #f44336;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+    /* Blog */
+    .blog-post {
+      background: #1f1f1f;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(244,67,54,0.5);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .blog-post h3 {
+      margin-top: 0;
+      color: #f44336;
+    }
+    /* Buttons filtro */
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .filter-buttons button {
+      background: #1f1f1f;
+      border: 2px solid #f44336;
+      color: #f44336;
+      padding: 0.5rem 1rem;
+      margin: 0 0.3rem;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: #f44336;
+      color: #121212;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Corvo Caótico</h1>
+    <nav>
+      <a href="#about">Sobre</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#blog">Blog</a>
+      <a href="#downloads">Downloads</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section id="about" class="about">
+      <h2>Sobre o Artista</h2>
+      <p>
+        Rafael Merce, conhecido como Corvo Caótico, é um artista digital especializado em arte sombria, gótica e surreal. Seu trabalho explora temas profundos com uma estética única e detalhada, conquistando uma base fiel de fãs.
+      </p>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+      <h2>Galeria de Artes</h2>
+      <div class="filter-buttons">
+        <button class="active" data-filter="all">Todos</button>
+        <button data-filter="fanart">Fanarts</button>
+        <button data-filter="nsfw">NSFW</button>
+        <button data-filter="original">Originais</button>
+      </div>
+      <div class="gallery">
+        <a href="#" class="gallery-item" data-category="fanart" title="Fanart Gundam">
+          <img src="https://via.placeholder.com/400x600?text=Fanart+1" alt="Fanart Gundam" />
+          <div class="caption">Fanart Gundam</div>
+        </a>
+        <a href="#" class="gallery-item" data-category="nsfw" title="Arte NSFW">
+          <img src="https://via.placeholder.com/400x600?text=NSFW+1" alt="Arte NSFW" />
+          <div class="caption">Arte NSFW</div>
+        </a>
+        <a href="#" class="gallery-item" data-category="original" title="Original Sombria">
+          <img src="https://via.placeholder.com/400x600?text=Original+1" alt="Original Sombria" />
+          <div class="caption">Original Sombria</div>
+        </a>
+        <a href="#" class="gallery-item" data-category="fanart" title="Fanart Anime">
+          <img src="https://via.placeholder.com/400x600?text=Fanart+2" alt="Fanart Anime" />
+          <div class="caption">Fanart Anime</div>
+        </a>
+        <a href="#" class="gallery-item" data-category="nsfw" title="Arte NSFW 2">
+          <img src="https://via.placeholder.com/400x600?text=NSFW+2" alt="Arte NSFW 2" />
+          <div class="caption">Arte NSFW 2</div>
+        </a>
+        <a href="#" class="gallery-item" data-category="original" title="Original Fantasia">
+          <img src="https://via.placeholder.com/400x600?text=Original+2" alt="Original Fantasia" />
+          <div class="caption">Original Fantasia</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+      <h2>Blog</h2>
+      <article class="blog-post">
+        <h3>Como criei a arte "Corvo Sombrio"</h3>
+        <p>Compartilho aqui meu processo criativo e as inspirações por trás dessa obra que explora a dualidade entre luz e sombra...</p>
+      </article>
+      <article class="blog-post">
+        <h3>Dicas para manter a constância na produção artística</h3>
+        <p>Falar sobre técnicas para evitar bloqueio criativo e organizar o fluxo de trabalho para garantir uma produção constante e de qualidade.</p>
+      </article>
+    </section>
+
+    <section id="downloads" class="downloads-section">
+      <h2>Downloads Gratuitos</h2>
+      <p>Baixe wallpapers exclusivos do Corvo Caótico para usar em seu computador ou celular.</p>
+      <ul>
+        <li><a href="https://via.placeholder.com/1080x1920.png?text=Wallpaper+1" target="_blank" rel="noopener">Wallpaper Sombrio 1 (1080x1920)</a></li>
+        <li><a href="https://via.placeholder.com/1080x1920.png?text=Wallpaper+2" target="_blank" rel="noopener">Wallpaper Sombrio 2 (1080x1920)</a></li>
+        <li><a href="https://via.placeholder.com/1080x1920.png?text=Wallpaper+3" target="_blank" rel="noopener">Wallpaper Sombrio 3 (1080x1920)</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contato</h2>
+      <p>Entre em contato para comissões ou parcerias:</p>
+      <p class="contact-links">
+        <a href="mailto:contato@corvocaotico.com">Email</a> |
+        <a href="https://twitter.com/CorvoCaotico" target="_blank" rel="noopener">Twitter</a> |
+        <a href="https://www.instagram.com/corvocaotico" target="_blank" rel="noopener">Instagram</a> |
+        <a href="https://www.patreon.com/corvocaotico" target="_blank" rel="noopener">Patreon</a>
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Corvo Caótico. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Filtro da galeria
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active de todos
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Adiciona active no clicado
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
